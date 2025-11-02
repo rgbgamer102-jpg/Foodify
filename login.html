@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login | Dabba Cartel</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #282828;
+    --accent-gold: #e5b000;
+    --text-light: #f0f0f0;
+    --text-muted: #b0b0b0;
+    --glass-light: rgba(255, 255, 255, 0.05);
+    --glass-medium: rgba(255, 255, 255, 0.1);
+    --border-subtle: rgba(255, 255, 255, 0.15);
+    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --radius-small: 8px;
+    --radius-medium: 12px;
+    --radius-large: 24px;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --transition-speed: 0.3s ease;
+    --bg-image: url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1950&q=80');
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+    font-family: var(--font-body);
+    color: var(--text-light);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), var(--bg-image) no-repeat center/cover;
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.btn {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition-speed);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    background: var(--glass-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.btn.primary {
+    background: linear-gradient(90deg, var(--accent-gold), #ffce3a);
+    color: var(--primary-bg);
+    border-color: var(--accent-gold);
+    box-shadow: 0 4px 12px rgba(229, 176, 0, 0.3);
+}
+.btn.primary:hover {
+    background: linear-gradient(90deg, #ffce3a, var(--accent-gold));
+    box-shadow: 0 6px 20px rgba(229, 176, 0, 0.4);
+}
+.muted { opacity: 0.7; color: var(--text-muted); }
+
+
+body.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.back-link {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    background: var(--glass-medium);
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    transition: var(--transition-speed);
+    z-index: 10;
+}
+.back-link:hover {
+    background: var(--glass-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.login-container {
+    width: min(90%, 480px);
+    padding: 40px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8));
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-strong);
+    border: 1px solid var(--border-subtle);
+}
+.login-container h2 {
+    font-family: var(--font-heading);
+    color: var(--accent-gold);
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--glass-light);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-light);
+    border-radius: var(--radius-small);
+    font-size: 1rem;
+    transition: var(--transition-speed);
+}
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 10px rgba(229, 176, 0, 0.3);
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.btn-full {
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 1.1rem;
+}
+.form-toggle-link {
+    color: var(--accent-gold);
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin-top: 25px;
+    font-size: 0.95rem;
+}
+.form-toggle-link:hover {
+    text-decoration: underline;
+}
+#signUpForm {
+    display: none; 
+}
+</style>
+</head>
+<body class="login-page">
+
+    <a href="index.html" class="back-link">← Back to Menu</a>
+
+    <div class="login-container">
+        <form id="loginForm">
+            <h2>Welcome Back bro,hows life</h2>
+            <div class="form-group">
+                <label for="loginId">Dabba ID</label>
+                <input type="text" id="loginId" name="loginId" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPass">Password</label>
+                <input type="password" id="loginPass" name="loginPass" required>
+            </div>
+            <button type="submit" class="btn primary btn-full">Login</button>
+            <a id="showSignUp" class="form-toggle-link">Don't have an account? Join the Cartel</a>
+        </form>
+
+        <form id="signUpForm">
+            <h2>Join the Cartel</h2>
+            <p class="muted" style="text-align: center; margin-top: -20px; margin-bottom: 20px; font-size: 0.9rem;">We'll generate your Dabba ID from your location.</p>
+            
+            <div class="form-group">
+                <label for="houseName">Building / House Name</label>
+                <input type="text" id="houseName" name="houseName" placeholder="e.g., Prestige Shantiniketan" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="houseNum">House No.</label>
+                    <input type="text" id="houseNum" name="houseNum" placeholder="e.g., Tower 5" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomNum">Flat / Room No.</label>
+                    <input type="text" id="roomNum" name="roomNum" placeholder="e.g., B-101" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cityArea">City / Area</label>
+                <input type="text" id="cityArea" name="cityArea" placeholder="e.g., Koramangala" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="e.g., Karnataka" required>
+            </div>
+
+            <hr style="border:none; border-top:1px solid var(--border-subtle); margin: 25px 0;">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="signUpPass">Password</label>
+                    <input type="password" id="signUpPass" name="signUpPass" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPass">Confirm Password</label>
+                    <input type="password" id="confirmPass" name="confirmPass" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn primary btn-full">Generate Dabba ID</button>
+            <a id="showLogin" class="form-toggle-link">Already have an account? Login</a>
+        </form>
+    </div>
+
+<script>
+    const loginForm = document.getElementById('loginForm');
+    const signUpForm = document.getElementById('signUpForm');
+    const showSignUp = document.getElementById('showSignUp');
+    const showLogin = document.getElementById('showLogin');
+
+    
+    showSignUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginForm.style.display = 'none';
+        signUpForm.style.display = 'block';
+    });
+
+    showLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        signUpForm.style.display = 'none';
+        loginForm.style.display = 'block';
+    });
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const enteredId = document.getElementById('loginId').value;
+        const enteredPass = document.getElementById('loginPass').value;
+        const savedUser = JSON.parse(localStorage.getItem('dabbaUser'));
+
+        if (!savedUser) {
+            alert('No account found. Please sign up first.');
+            return;
+        }
+
+        if (savedUser.id === enteredId && savedUser.pass === enteredPass) {
+            alert('It works now go order');
+            const sessionData = { id: savedUser.id, location: savedUser.location };
+            localStorage.setItem('currentUser', JSON.stringify(sessionData));
+            window.location.href = 'index.html';
+        } else {
+            alert('Invalid Dabba ID or Password.');
+        }
+    });
+
+    signUpForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+    
+        const houseName = document.getElementById('houseName').value;
+        const houseNum = document.getElementById('houseNum').value;
+        const roomNum = document.getElementById('roomNum').value;
+        const cityArea = document.getElementById('cityArea').value;
+        const state = document.getElementById('state').value;
+        const pass = document.getElementById('signUpPass').value;
+        const confirmPass = document.getElementById('confirmPass').value;
+
+      
+        if (!houseName || !houseNum || !roomNum || !cityArea || !state || !pass) {
+            alert('Please fill out all fields.');
+            return;
+        }
+
+        if (pass !== confirmPass) {
+            alert('Passwords do not match.');
+            return;
+        }
+
+
+        const cityCode = cityArea.substring(0, 3).toUpperCase().replace(/\s+/g, '');
+        const roomCode = roomNum.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        const houseCode = houseNum.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        const generatedId = `${cityCode}-${houseCode}-${roomCode}`;
+        const locationPreview = `${roomNum}, ${houseNum}, ${houseName}`; 
+
+      
+        const userAccount = {
+            id: generatedId,
+            pass: pass,
+            location: locationPreview,
+            fullAddress: { houseName, houseNum, roomNum, cityArea, state }
+        };
+        localStorage.setItem('dabbaUser', JSON.stringify(userAccount));
+
+      
+        const sessionData = { id: generatedId, location: locationPreview };
+        localStorage.setItem('currentUser', JSON.stringify(sessionData));
+        
+        alert(`Leftovers are waiting!\n\nYour new ID : ${generatedId}\n( Save it for login)\n\nCheri Cheri Lady🎶`);
+        
+        
+        window.location.href = 'index.html';
+    });
+</script>
+
+</body>
+</html>
