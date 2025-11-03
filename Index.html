@@ -25,7 +25,7 @@
  	--radius-medium: 12px;
  	--radius-large: 24px;
 
- 	/* ✨ UPDATED FONT STACK */
+ 
  	--font-heading: 'Inter', sans-serif;
  	--font-body: 'Inter', sans-serif;
 
@@ -43,11 +43,10 @@ body {
  	line-height: 1.6;
  	overflow-x: hidden;
 
- 	/* ✨ SHARPER FONT RENDERING */
  	-webkit-font-smoothing: antialiased;
  	-moz-osx-font-smoothing: grayscale;
  	text-rendering: optimizeLegibility;
- 	font-synthesis: none; /* Prevents "faux bold" */
+ 	font-synthesis: none; 
 }
 
 .skip-link { position: absolute; left: -999px; top: auto; background: var(--accent-gold); color: #000; padding: 8px 12px; z-index: 10000; border-radius: var(--radius-small); }
@@ -78,15 +77,15 @@ body {
  	font-family: var(--font-heading);
  	font-size: 24px;
  	box-shadow: 0 4px 15px rgba(229, 176, 0, 0.4);
- 	letter-spacing: -1px; /* ✨ TWEAK FOR NEW FONT */
+ 	letter-spacing: -1px; 
 }
 .header h1 { 
 	margin: 0; 
 	font-family: var(--font-heading); 
 	font-size: 1.8rem; 
 	color: var(--accent-gold); 
-	font-weight: 700; /* ✨ TWEAK FOR NEW FONT */
-	letter-spacing: -0.5px; /* ✨ TWEAK FOR NEW FONT */
+	font-weight: 700;
+	letter-spacing: -0.5px; 
 }
 .header p { margin: 0; opacity: 0.7; font-size: 0.9rem; color: var(--text-muted); }
 .actions { display: flex; gap: 10px; align-items: center; }
@@ -99,7 +98,7 @@ body {
  	border-radius: 999px;
  	cursor: pointer;
  	transition: var(--transition-speed);
- 	font-weight: 600; /* We loaded this weight */
+ 	font-weight: 600; 
  	font-size: 0.95rem;
 }
 .btn:hover {
@@ -142,7 +141,7 @@ body {
 	margin: 0 0 15px 0; 
 	color: var(--accent-gold); 
 	line-height: 1.2; 
-	font-weight: 700; /* ✨ TWEAK FOR NEW FONT */
+	font-weight: 700; 
 }
 .hero p { margin: 0 0 25px 0; opacity: 0.85; max-width: 75ch; font-size: 1.05rem; color: var(--text-light); }
 
@@ -171,7 +170,7 @@ body {
 	color: var(--accent-gold); 
 	font-size: 1.4rem; 
 	font-family: var(--font-heading); 
-	font-weight: 700; /* ✨ TWEAK FOR NEW FONT */
+	font-weight: 700; 
 }
 .card p { margin: 0; opacity: 0.8; font-size: 0.95rem; color: var(--text-light); }
 
@@ -204,7 +203,7 @@ body {
 	font-family: var(--font-heading); 
 	color: var(--accent-gold); 
 	font-size: 1.8rem; 
-	font-weight: 700; /* ✨ TWEAK FOR NEW FONT */
+	font-weight: 700; 
 }
 .menu-list, .combo-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
 
@@ -250,7 +249,7 @@ body {
  	color: var(--accent-gold);
  	font-family: var(--font-heading);
  	font-size: 1.3rem;
- 	font-weight: 700; /* ✨ TWEAK FOR NEW FONT */
+ 	font-weight: 700; 
 }
 .featured-dish p {
  	font-size: 0.9rem;
@@ -297,7 +296,7 @@ body {
 	color: var(--accent-gold); 
 	font-family: var(--font-heading); 
 	font-size: 1.5rem; 
-	font-weight: 700; /* ✨ TWEAK FOR NEW FONT */
+	font-weight: 700; 
 }
 .modal .controls { display: flex; gap: 8px; align-items: center; }
 .close-btn { 
@@ -330,7 +329,7 @@ body {
 	color: var(--accent-gold); 
 	font-family: var(--font-heading); 
 	font-size: 1.6rem; 
-	font-weight: 700; /* ✨ TWEAK FOR NEW FONT */
+	font-weight: 700; 
 }
 #cartDrawer input { width: 100%; box-sizing: border-box; padding: 10px; border-radius: var(--radius-small); border: 1px solid var(--border-subtle); background: var(--glass-light); color: var(--text-light); }
 #cartDrawer input::placeholder { color: var(--text-muted); }
@@ -624,7 +623,7 @@ window.addEventListener('load', ()=>{
 
 window.addEventListener('keydown',(e)=>{ 
   if(e.key==='Escape'){ 
- 	// Removed check for memeModal
+ 	
  	closeCart(); 
  	const orderModal = document.getElementById('orderModal'); 
  	if(orderModal && orderModal.style.display==='flex'){ 
